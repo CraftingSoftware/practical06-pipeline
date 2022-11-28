@@ -1,0 +1,57 @@
+setup: |
+  echo "Done installing project dependencies!"
+---
+# Check for TODOs
+- writing/reflection.md:
+  - description: Complete all TODOs in writing/reflection.md
+    check: ConfirmFileExists
+  - description: Write a minimum number of meaningful words (100) in the reflection
+    check: CountFileWords
+    options:
+      count: 100
+      exact: false
+  - description: Complete all TODOs, remove the TODO markers in the reflection.md
+    check: MatchFileFragment
+    options:
+      fragment: TODO
+      count: 0
+      exact: true
+
+# Check for procedure definitions
+- term_context_pipeline.py:
+  - description: Complete all TODOs, remove the TODO markers in the  term_context_pipeline.py
+    check: MatchFileFragment
+    options:
+      fragment: TODO
+      count: 0
+      exact: true
+  - description: Define `read_file` procedure in the term_context_pipeline.py
+    check: MatchFileFragment
+    options:
+      fragment: "def read_file("
+      count: 1
+      exact: true
+  - description: Define `group_char_data_into_words` procedure in term_context_pipeline.py
+    check: MatchFileFragment
+    options:
+      fragment: "def group_char_data_into_words("
+      count: 1
+      exact: true
+  - description: Define `gather_contexts_from_words` procedure in term_context_pipeline.py
+    check: MatchFileFragment
+    options:
+      fragment: "def gather_contexts_from_words("
+      count: 1
+      exact: true
+  - description: Define `print_contexts` procedure in term_context_pipeline.py
+    check: MatchFileFragment
+    options:
+      fragment: "def print_contexts("
+      count: 1
+      exact: true
+
+# Count number of commits in the GitHub repository
+- description: Have at least a specific minimum number of commits (6) in repository
+  check: CountCommits
+  options:
+    count: 1

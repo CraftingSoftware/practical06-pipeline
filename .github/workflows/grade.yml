@@ -1,0 +1,67 @@
+name: Grade
+# Controls when the action will run
+# Workflow begins with push or PR events
+# Focuses on the main branch only
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdown:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v4
+  spelling:
+    name: Check Spelling
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run cspell
+        uses: zwaldowski/cspell-action@v1
+        with:
+          paths: "**/*.md"
+          config: .github/cspell.json
+  gatorgrader:
+    runs-on: ubuntu-latest
+    name: Run GatorGrader
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run GatorGrader
+        if: always()
+        run:  |
+          pip install gatorgrade
+          gatorgrade --config config/gatorgrade.yml
+  python-tests:
+    runs-on: ubuntu-latest
+    name: Run Python Tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      # Install poetry
+      - name: Install Poetry
+        if: always()
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.14
+        # Run the Python program
+      - name: Run Python Tests
+        if: always()
+        run: |
+          poetry install
+          poetry run pytest tests/test_term_context_pipeline.py
