@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "practical05-pipeline-solution"
+name = "practical06-pipeline-solution"
 version = "0.1.0"
 description = ""
 authors = ["Janyl Jumadinova <jjumadinova@allegheny.edu>"]
