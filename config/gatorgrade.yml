@@ -54,4 +54,4 @@ setup: |
 - description: Have at least a specific minimum number of commits (6) in repository
   check: CountCommits
   options:
-    count: 1
+    count: 6

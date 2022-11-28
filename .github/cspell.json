@@ -22,7 +22,9 @@
         "typer",
         "pyenv",
         "pytest's",
-        "docstrings"
+        "docstrings",
+        "gatorgrade",
+        "gradebook"
     ],
     "ignorePaths": [
         ".github/**"
