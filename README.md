@@ -61,7 +61,7 @@ Answer all questions in `writing/reflection.md`. As you do, commit your changes 
 
 You can gain an approximation of your progress on this assignment by running [GatorGrader](https://github.com/GatorEducator/gatorgrader) locally. You do need to have `gatorgrade` and Python installed to be able to run this command.
 
-```bash gatorgrade --config config/gatorgrade.yml
+```bash gatorgrade --config config/gatorgrade.yml```
 
 ## Receiving Assistance
 
