@@ -1,7 +1,5 @@
 # Pipeline Programming Style
 
-## Due Date: Friday December 2nd, 2022 by midnight
-
 ## Introduction
 
 In this practical assignment, you will practice writing programs in the Pipeline programming style by converting a program written in the Cookbook programming style to a program that uses the Pipeline programming style. Through this exercise, you will put into practice the following learning objective(s):
